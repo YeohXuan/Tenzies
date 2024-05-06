@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Die from "./Die.jsx";
-import Confetti from "./vite.config.js/react-confetti";
+import Confetti from "./react-confetti";
 import "./App.css";
 
 export default function App() {
