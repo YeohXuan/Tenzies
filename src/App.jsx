@@ -38,7 +38,7 @@ export default function App() {
   function generateNewDice() {
     return {
       id: nanoid(),
-      value: Math.ceil(Math.random() * 3),
+      value: Math.ceil(Math.random() * 6),
       isHeld: false,
     };
   }
