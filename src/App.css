@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  background-color: #0b2434;
+  user-select: none;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+main {
+  background-color: #f5f5f5;
+  max-width: 350px;
+  margin: 0 auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.title {
+  font-weight: 700;
+  color: #2b283a;
+  margin-bottom: 0;
+}
+
+.instructions {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  margin-top: 12px;
+  text-align: justify;
+}
+
+.turn-container {
+  width: 100%;
+  margin: 10px 0 12px 0;
+}
+
+.dice-container {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 12px;
+  margin: 10px 0 40px 0;
+}
+
+.die-face {
+  width: 46px;
+  height: 46px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.die-num {
+  width: 30px;
+  height: 30px;
+}
+
+/* Styles for the first die face */
+.die-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for the second die face */
+.die-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.die-two .dot:nth-child(2) {
+  align-self: flex-end;
+}
+
+/* Styles for the third die face */
+.die-three {
+  display: flex;
+  justify-content: space-between;
+}
+.die-three .dot:nth-child(2) {
+  align-self: center;
+}
+.die-three .dot:nth-child(3) {
+  align-self: flex-end;
+}
+
+/* Styles for the fourth die face */
+.die-four {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35.1%; /* Adjust gap as needed */
+}
+.die-four .dot {
+  flex: 10%; /* Adjust dot size as needed */
+}
+
+/* Styles for the fifth die face */
+.die-five {
+  position: relative;
+}
+.die-five .dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+.die-five .dot:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+.die-five .dot:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+.die-five .dot:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+.die-five .dot:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+.die-five .dot:nth-child(5) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styles for the sixth die face */
+.die-six {
+  transform: translateX(-1px) translateY(-1px);
+  display: grid;
+  grid-template: repeat(3, 10px) / repeat(3, 10px);
+  gap: 1px;
+}
+.die-six .dot:nth-child(1) {
+  grid-area: 1 / 1;
+}
+.die-six .dot:nth-child(2) {
+  grid-area: 2 / 1;
+}
+.die-six .dot:nth-child(3) {
+  grid-area: 3 / 1;
+}
+.die-six .dot:nth-child(4) {
+  grid-area: 1 / 3;
+}
+.die-six .dot:nth-child(5) {
+  grid-area: 2 / 3;
+}
+.die-six .dot:nth-child(6) {
+  grid-area: 3 / 3;
+}
+
+
+.roll-dice {
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #5035ff;
+  box-shadow: 0px 0px 4px #6e58ff;
+  border: none;
+  border-radius: 6px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.roll-dice:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.mock {
+  font-size: 0.5rem;
+  display: inline;
+}
+
+.new-record {
+  display: flex;
+  position: fixed;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: 6% auto;
+  color: rgb(60, 60, 60);
+  background-color: #23f28a;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  width: 130px;
+  animation: popUp 0.8s forwards;
+}
+
+.new-record.hide {
+  animation: popDown 0.8s forwards;
+}
+
+@keyframes popUp {
+  from {
+    bottom: -50px;
+    opacity: 0;
+  }
+  to {
+    bottom: 5px;
+    opacity: 1;
+  }
+}
+@keyframes popDown {
+  from {
+    bottom: 5px;
+    opacity: 1;
+  }
+  to {
+    bottom: -50px;
+    opacity: 0;
+  }
+}
